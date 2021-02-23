@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D424C4E7-DC3C-43A1-8AE1-80F6579FEC72}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AdminClient</RootNamespace>
+    <AssemblyName>AdminClient</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseForm\FormTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormTemp.Designer.cs">
+      <DependentUpon>FormTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\EmpFormTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\EmpFormTemp.Designer.cs">
+      <DependentUpon>EmpFormTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\FormListTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormListTemp.Designer.cs">
+      <DependentUpon>FormListTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListTemp.Designer.cs">
+      <DependentUpon>FormSerchListTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListSplitTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListSplitTemp.Designer.cs">
+      <DependentUpon>FormSerchListSplitTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListThreeSplitTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormSerchListThreeSplitTemp.Designer.cs">
+      <DependentUpon>FormSerchListThreeSplitTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\EmpFormNoSerchTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\EmpFormNoSerchTemp.Designer.cs">
+      <DependentUpon>EmpFormNoSerchTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\FormSearchTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\FormSearchTemp.Designer.cs">
+      <DependentUpon>FormSearchTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CustomDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\CustomDataGridView.Designer.cs">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\ucTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\ucTabControl.Designer.cs">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\TempInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\TempInfo.Designer.cs">
+      <DependentUpon>TempInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Facility\FacilityInfo_NEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Facility\FacilityInfo_NEW.Designer.cs">
+      <DependentUpon>FacilityInfo_NEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Facility\ProcessInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Facility\ProcessInfo.Designer.cs">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\ContractInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\ContractInfo.Designer.cs">
+      <DependentUpon>ContractInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\ProductionPlan_NEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\ProductionPlan_NEW.Designer.cs">
+      <DependentUpon>ProductionPlan_NEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\BOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\BOM.Designer.cs">
+      <DependentUpon>BOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Facility\BOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Facility\BOR.Designer.cs">
+      <DependentUpon>BOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommonCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommonCode.Designer.cs">
+      <DependentUpon>CommonCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\CompanyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\CompanyInfo.Designer.cs">
+      <DependentUpon>CompanyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\DemandPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\DemandPlan.Designer.cs">
+      <DependentUpon>DemandPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\EmpInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\EmpInfo.Designer.cs">
+      <DependentUpon>EmpInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\GroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpGroup\GroupInfo.Designer.cs">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\InOutInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\InOutInfo.Designer.cs">
+      <DependentUpon>InOutInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\OrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\OrderInfo.Designer.cs">
+      <DependentUpon>OrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\OutSourcingPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\OutSourcingPlan.Designer.cs">
+      <DependentUpon>OutSourcingPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\ProductCheckInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\ProductCheckInfo.Designer.cs">
+      <DependentUpon>ProductCheckInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\ProductInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\ProductInfo.Designer.cs">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sales\Shipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sales\Shipment.Designer.cs">
+      <DependentUpon>Shipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\StockInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\StockInfo.Designer.cs">
+      <DependentUpon>StockInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\WareHouseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\WareHouseInfo.Designer.cs">
+      <DependentUpon>WareHouseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production\WorkOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production\WorkOrderInfo.Designer.cs">
+      <DependentUpon>WorkOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="MDI\MDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\MDI.Designer.cs">
+      <DependentUpon>MDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\BOMPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\BOMPopUp.Designer.cs">
+      <DependentUpon>BOMPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\BORPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\BORPopUp.Designer.cs">
+      <DependentUpon>BORPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\CommandCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\CommandCode.Designer.cs">
+      <DependentUpon>CommandCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\CompanyInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\CompanyInfoPopUp.Designer.cs">
+      <DependentUpon>CompanyInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ContractInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\ContractInfoPopUp.Designer.cs">
+      <DependentUpon>ContractInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\EmpInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\EmpInfoPopUp.Designer.cs">
+      <DependentUpon>EmpInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\FacilityInfo_NEW_GroupPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\FacilityInfo_NEW_GroupPopUp.Designer.cs">
+      <DependentUpon>FacilityInfo_NEW_GroupPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\FacilityInfo_NEWPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\FacilityInfo_NEWPopUp.Designer.cs">
+      <DependentUpon>FacilityInfo_NEWPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\OrderInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\OrderInfoPopUp.Designer.cs">
+      <DependentUpon>OrderInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ProcessInfo_Detail_PopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\ProcessInfo_Detail_PopUp.Designer.cs">
+      <DependentUpon>ProcessInfo_Detail_PopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ProductCheckInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\ProductCheckInfoPopUp.Designer.cs">
+      <DependentUpon>ProductCheckInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ProductInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\ProductInfoPopUp.Designer.cs">
+      <DependentUpon>ProductInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\ProcessInfo_PopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\ProcessInfo_PopUp.Designer.cs">
+      <DependentUpon>ProcessInfo_PopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\Shipment_PopUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\Shipment_PopUP.Designer.cs">
+      <DependentUpon>Shipment_PopUP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\WareHouseInfoPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\WareHouseInfoPopUp.Designer.cs">
+      <DependentUpon>WareHouseInfoPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\WorkPlanDetailPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\WorkPlanDetailPopUp.Designer.cs">
+      <DependentUpon>WorkPlanDetailPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp\WorkPlanPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\WorkPlanPopUp.Designer.cs">
+      <DependentUpon>WorkPlanPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serch\ProductSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serch\ProductSearch.Designer.cs">
+      <DependentUpon>ProductSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\BOMService.cs" />
+    <Compile Include="Service\BORService.cs" />
+    <Compile Include="Service\ComboBindingService.cs" />
+    <Compile Include="Service\CommonService.cs" />
+    <Compile Include="Service\CompanyService.cs" />
+    <Compile Include="Service\ContractService.cs" />
+    <Compile Include="Service\DemandService.cs" />
+    <Compile Include="Service\EmployeeService.cs" />
+    <Compile Include="Service\EmployeesService.cs" />
+    <Compile Include="Service\EmpTeamConnService.cs" />
+    <Compile Include="Service\FacilityService.cs" />
+    <Compile Include="Service\FavoritesService.cs" />
+    <Compile Include="Service\FormInfoService.cs" />
+    <Compile Include="Service\GroupFormConnService.cs" />
+    <Compile Include="Service\GroupInfoService.cs" />
+    <Compile Include="Service\InOutService.cs" />
+    <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\ProcessService.cs" />
+    <Compile Include="Service\ProductCheckService.cs" />
+    <Compile Include="Service\ProductionService.cs" />
+    <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\StockInfoService.cs" />
+    <Compile Include="Service\TeamForFormServer.cs" />
+    <Compile Include="Service\TeamGroupConnService.cs" />
+    <Compile Include="Service\TeamInfoService.cs" />
+    <Compile Include="Service\ViewService.cs" />
+    <Compile Include="Service\WareHouseService.cs" />
+    <Compile Include="Service\WorkOrderService.cs" />
+    <Compile Include="UseControl\FavoritesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\FavoritesControl.Designer.cs">
+      <DependentUpon>FavoritesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseControl\SearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\SearchControl.Designer.cs">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseControl\SortControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\SortControl.Designer.cs">
+      <DependentUpon>SortControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\CommonExcel.cs" />
+    <Compile Include="Utils\CommonUtil.cs" />
+    <Compile Include="Utils\CuttedGroup.cs" />
+    <Compile Include="Utils\DateTimeFormatter.cs" />
+    <Compile Include="Utils\Email.cs" />
+    <Compile Include="Utils\ExtenstionMethod.cs" />
+    <Compile Include="Utils\ServiceHelp.cs" />
+    <Compile Include="Utils\UtileHelper.cs" />
+    <Compile Include="Utils\UtilEvent.cs" />
+    <EmbeddedResource Include="BaseForm\FormTemp.resx">
+      <DependentUpon>FormTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\EmpFormTemp.resx">
+      <DependentUpon>EmpFormTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\FormListTemp.resx">
+      <DependentUpon>FormListTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\FormSerchListTemp.resx">
+      <DependentUpon>FormSerchListTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\FormSerchListSplitTemp.resx">
+      <DependentUpon>FormSerchListSplitTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\FormSerchListThreeSplitTemp.resx">
+      <DependentUpon>FormSerchListThreeSplitTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\EmpFormNoSerchTemp.resx">
+      <DependentUpon>EmpFormNoSerchTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\FormSearchTemp.resx">
+      <DependentUpon>FormSearchTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\CustomDataGridView.resx">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpGroup\TempInfo.resx">
+      <DependentUpon>TempInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Facility\FacilityInfo_NEW.resx">
+      <DependentUpon>FacilityInfo_NEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Facility\ProcessInfo.resx">
+      <DependentUpon>ProcessInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\ContractInfo.resx">
+      <DependentUpon>ContractInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\ProductionPlan_NEW.resx">
+      <DependentUpon>ProductionPlan_NEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\BOM.resx">
+      <DependentUpon>BOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Facility\BOR.resx">
+      <DependentUpon>BOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommonCode.resx">
+      <DependentUpon>CommonCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\CompanyInfo.resx">
+      <DependentUpon>CompanyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\DemandPlan.resx">
+      <DependentUpon>DemandPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpGroup\EmpInfo.resx">
+      <DependentUpon>EmpInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpGroup\FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpGroup\GroupInfo.resx">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\InOutInfo.resx">
+      <DependentUpon>InOutInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\OrderInfo.resx">
+      <DependentUpon>OrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\OutSourcingPlan.resx">
+      <DependentUpon>OutSourcingPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\ProductCheckInfo.resx">
+      <DependentUpon>ProductCheckInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\ProductInfo.resx">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sales\Shipment.resx">
+      <DependentUpon>Shipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\StockInfo.resx">
+      <DependentUpon>StockInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\WareHouseInfo.resx">
+      <DependentUpon>WareHouseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production\WorkOrderInfo.resx">
+      <DependentUpon>WorkOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\MDI.resx">
+      <DependentUpon>MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\BOMPopUp.resx">
+      <DependentUpon>BOMPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\BORPopUp.resx">
+      <DependentUpon>BORPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\CommandCode.resx">
+      <DependentUpon>CommandCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\CompanyInfoPopUp.resx">
+      <DependentUpon>CompanyInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\ContractInfoPopUp.resx">
+      <DependentUpon>ContractInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\EmpInfoPopUp.resx">
+      <DependentUpon>EmpInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\FacilityInfo_NEW_GroupPopUp.resx">
+      <DependentUpon>FacilityInfo_NEW_GroupPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\FacilityInfo_NEWPopUp.resx">
+      <DependentUpon>FacilityInfo_NEWPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\OrderInfoPopUp.resx">
+      <DependentUpon>OrderInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\ProcessInfo_Detail_PopUp.resx">
+      <DependentUpon>ProcessInfo_Detail_PopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\ProductCheckInfoPopUp.resx">
+      <DependentUpon>ProductCheckInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\ProductInfoPopUp.resx">
+      <DependentUpon>ProductInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\ProcessInfo_PopUp.resx">
+      <DependentUpon>ProcessInfo_PopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\Shipment_PopUP.resx">
+      <DependentUpon>Shipment_PopUP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\WareHouseInfoPopUp.resx">
+      <DependentUpon>WareHouseInfoPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\WorkPlanDetailPopUp.resx">
+      <DependentUpon>WorkPlanDetailPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\WorkPlanPopUp.resx">
+      <DependentUpon>WorkPlanPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serch\ProductSearch.resx">
+      <DependentUpon>ProductSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\FavoritesControl.resx">
+      <DependentUpon>FavoritesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\SearchControl.resx">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\SortControl.resx">
+      <DependentUpon>SortControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pistol-596564_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdminClientDAC\AdminClientDAC.csproj">
+      <Project>{bbfc4b89-ccd4-44ba-8aff-ed5442930a4c}</Project>
+      <Name>AdminClientDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdminClientVO\AdminClientVO.csproj">
+      <Project>{AB68E800-4FF6-46DE-9D0E-0248F41ABB45}</Project>
+      <Name>AdminClientVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cowboy-2028626_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportToXLS_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sherch_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormatAsTable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditName_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearTableStyle_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortAsc_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BelowAverage_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cowboy_2028626_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pistol_596564_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Forms\Facility\FacImg\설비등록 테스트.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Edit_32x32.png" />
+    <None Include="Resources\guns-34272_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
